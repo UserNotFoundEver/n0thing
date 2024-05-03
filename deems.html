@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Random Color and Message</title>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    #message {
+        margin-top: 20px;
+        font-size: 24px;
+    }
+</style>
+</head>
+<body>
+<button id="colorButton">Click me!</button>
+<div id="message"></div>
+<script>
+    document.getElementById('colorButton').addEventListener('click', function() {
+        // Generate random color
+        const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        document.body.style.backgroundColor = randomColor;
+
+        // Display the message "nothing"
+        document.getElementById('message').innerText = "nothing";
+    });
+</script>
+</body>
+</html>
