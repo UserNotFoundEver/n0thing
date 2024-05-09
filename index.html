@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>n0thing</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .swap-container {
+            background-color: #121212; /* Dark background */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -13,8 +21,10 @@
         <div id="wheel"></div>
         <p id="result"></p>
         <p id="additionalMessage"></p>
-        <!-- Swap Widget or Iframe -->
-        <iframe src="https://app.uniswap.org/#/swap?use=v3&chain=polygon&inputCurrency=ETH&outputCurrency=[0x3d2bD0e15829AA5C362a4144FdF4A1112fa29B5c]" width="100%" height="600px" style="border:0;"></iframe>
+        <!-- Swap Widget Container with Dark Theme -->
+        <div class="swap-container">
+            <iframe src="https://app.uniswap.org/#/swap?use=v3&chain=polygon&inputCurrency=ETH&outputCurrency=[0x3d2bD0e15829AA5C362a4144FdF4A1112fa29B5c]" width="300px" height="400px" style="border:0;"></iframe>
+        </div>
     </div>
     <script src="scripts.js"></script>
 </body>
