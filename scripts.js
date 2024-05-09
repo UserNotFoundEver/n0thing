@@ -22,7 +22,7 @@ document.getElementById('spinButton').addEventListener('click', function() {
         setTimeout(() => {
             result.style.animation = 'growSize 3s forwards';
         }, 100);
-        additionalMessage.textContent = "Spin the wheel to bet $BONSAI and other tokens. Do you have NOTHING yet, anon?"; // Display the new message
+        additionalMessage.textContent = "Spin the wheel to bet $BONSAI and other tokens. Do you have NOTHING yet, anon? Use the NOTHING token to make $BONSAI"; // Display the new message
     }, 4000);
 });
 
