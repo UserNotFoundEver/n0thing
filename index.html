@@ -12,20 +12,49 @@
             border-radius: 8px;
             margin-top: 20px;
         }
+        .link-bonsai {
+            color: #00ff00; /* Distinctive color for the link */
+            text-decoration: none; /* Removes the underline from links */
+        }
+        .link-bonsai:hover {
+            text-decoration: underline; /* Adds underline on hover */
+        }
+        footer {
+            background-color: #222; /* Dark background for the footer */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>n0thing</h1>
-        <button id="spinButton">Bet $NOTHING, win $BONSAI</button>
+        <button id="spinButton">seriously, n0thing</button>
         <div id="wheel"></div>
         <p id="result"></p>
         <p id="additionalMessage"></p>
-        <!-- Swap Widget Container with Dark Theme -->
         <div class="swap-container">
-            <iframe src="https://app.uniswap.org/#/swap?use=v3&chain=polygon&inputCurrency=ETH&outputCurrency=[0x3d2bD0e15829AA5C362a4144FdF4A1112fa29B5c]" width="300px" height="400px" style="border:0;"></iframe>
+            <iframe src="https://app.uniswap.org/#/swap?use=v3&chain=polygon&inputCurrency=ETH&outputCurrency=[BONSAI_CONTRACT_ADDRESS]" width="300px" height="400px" style="border:0;"></iframe>
         </div>
+    <!-- Include Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+        <div class="social-share">
+            <a href="#" onclick="shareOnFacebook(); return false;" class="social-button" id="facebook-btn"><i class="fab fa-facebook-f"></i> Share on Facebook</a>
+            <a href="#" onclick="shareOnTwitter(); return false;" class="social-button" id="twitter-btn"><i class="fab fa-twitter"></i> Share on Twitter</a>
+            <a href="#" onclick="shareOnLinkedIn(); return false;" class="social-button" id="linkedin-btn"><i class="fab fa-linkedin-in"></i> Share on LinkedIn</a>
+        </div>
+
     </div>
+    <footer>
+        $NOTHING is a meme coin with no intrinsic value or expectation of financial return. There is no formal team or roadmap. The coin is completely useless and for entertainment purposes only.
+    </footer>
     <script src="scripts.js"></script>
 </body>
 </html>
