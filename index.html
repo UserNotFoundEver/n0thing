@@ -7,12 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js"></script>
     <style>
-        .swap-container {
-            background-color: #121212; /* Dark background */
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
         .link-bonsai {
             color: #00ff00; /* Distinctive color for the link */
             text-decoration: none; /* Removes the underline from links */
@@ -31,12 +25,19 @@
             bottom: 0;
             width: 100%;
         }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Use at least the full height of the viewport */
+            text-align: center; /* Centers the text */
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>n0thing</h1>
-        <!-- Fixed link -->
         <div><a href="https://forms.gle/tusJFNteYTBdS1ys9" class="link-bonsai" target="_blank">Get the $NOTHING airdrop! Fill out our form!</a></div>
         <button id="spinButton">Bet $NOTHING, Win $BONSAI</button>
         
@@ -48,7 +49,7 @@
         </div>
     </div>
     <footer>
-        $NOTHING is a meme coin with no intrinsic value or expectation of financial return. There is no formal team or roadmap. The coin is completely useless and for entertainment purposes only.
+        $NOTHING is a meme coin with no intrinsic value or expectation of financial return. There is no formal team or roadmap.
     </footer>
 </body>
 </html>
