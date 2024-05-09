@@ -12,12 +12,11 @@ body {
 
 .container {
     text-align: center;
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    overflow: visible;  /* Make sure it does not clip contents */
+    height: auto;  /* Ensure it expands to fit content */
 }
+
+
 
 button {
     background-color: white;
