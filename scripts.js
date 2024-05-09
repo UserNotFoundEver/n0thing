@@ -4,11 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const result = document.getElementById('result');
     const additionalMessage = document.getElementById('additionalMessage');
 
-    // Initially hide the wheel
-    wheel.style.display = 'none';
-
+    // No need to set display none, as the CSS already keeps the wheel visible without animation
     spinButton.addEventListener('click', function() {
-        wheel.style.display = 'block';  // Show the wheel when the button is clicked
+        // Apply the spin animation when the button is clicked
         wheel.style.animation = 'spin 4s ease-out';
 
         let intervalId = setInterval(() => {
@@ -17,16 +15,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         setTimeout(() => {
             clearInterval(intervalId);
-            wheel.style.display = 'none';  // Hide the wheel again after spinning
+            // After spinning stops, reset the animation so it can be triggered again
+            wheel.style.animation = 'none';
 
             // Determine winning or losing with 10% chance of winning
             if (Math.random() < 0.1) {  // 10% chance of winning
                 result.textContent = '🎉 Congratulations! You won 10 $BONSAI! 🎉';
                 additionalMessage.innerHTML = 'Click below to claim your prize!';
-                createClaimButton(); // Function to create and display the claim button
+                createClaimButton();
+                result.style.animation = 'growSize 3s forwards';
             } else {
                 result.textContent = '😭 NOTHING 😭';
                 additionalMessage.textContent = 'Play again to win $BONSAI and other tokens. Do you have NOTHING yet, anon?';
+                result.style.animation = 'growSize 3s forwards';
             }
         }, 4000);
     });
@@ -39,6 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
         claimButton.onclick = function() {
             window.location.href = 'https://bonsai.meme'; // Redirect to claim page
         };
-        additionalMessage.appendChild(claimButton); // Append the button to the additionalMessage element
+        additionalMessage.appendChild(claimButton);
     }
 });
