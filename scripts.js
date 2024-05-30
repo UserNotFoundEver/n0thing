@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Determine winning or losing with 10% chance of winning
             if (Math.random() < 0.1) {  // 10% chance of winning
-                result.textContent = '🎉 Congratulations! You won 10 $BONSAI! 🎉';
-                additionalMessage.innerHTML = 'Click below to claim your prize!';
+                result.textContent = '🎉 Congratulations! You won NOTHING! 🎉';
+                additionalMessage.innerHTML = 'Click below to claim literally nothing.';
                 createClaimButton();
                 result.style.animation = 'growSize 3s forwards';
             } else {
@@ -34,11 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function createClaimButton() {
         const claimButton = document.createElement('button');
-        claimButton.textContent = 'Claim $BONSAI';
+        claimButton.textContent = 'Claim $NOTHING';
         claimButton.id = 'claimButton';
         claimButton.style.marginTop = '20px';
         claimButton.onclick = function() {
-            window.location.href = 'https://bonsai.meme'; // Redirect to claim page
+            window.location.href = 'https://n0thing.lol'; // Redirect to claim page
         };
         additionalMessage.appendChild(claimButton);
     }
