@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 result.style.animation = 'growSize 3s forwards';
             } else {
                 result.textContent = '😭 NOTHING 😭';
-                additionalMessage.textContent = 'Play again to win $BONSAI and other tokens. Do you have NOTHING yet, anon?';
+                additionalMessage.textContent = 'Play again to get $NOTHING. Do you have NOTHING yet, anon?';
                 result.style.animation = 'growSize 3s forwards';
             }
         }, 4000);
