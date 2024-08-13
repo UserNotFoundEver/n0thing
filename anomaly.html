@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Contract Interaction - Anomaly Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:disabled {
+            background-color: #aaa;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Smart Contract Interaction Anomaly Test</h1>
+    <button id="approveBtn">Approve Transaction Test</button>
+    <div class="result" id="result"></div>
+
+    <script type="module">
+        document.getElementById('approveBtn').addEventListener('click', async () => {
+            const resultElement = document.getElementById('result');
+            try {
+                const contract = "0xa9aeE5ed1b5fF1cC503298328dEfe11f6C0D2A8e"; // Updated contract address
+                const spender = "0xa9aeE5ed1b5fF1cC503298328dEfe11f6C0D2A8e"; // Replace with the spender's address
+                const amount = 1000; // Replace with the amount
+                const account = "0xa9aeE5ed1b5fF1cC503298328dEfe11f6C0D2A8e"; // Replace with your account address
+
+                const transaction = await prepareContractCall({
+                    contract,
+                    method: "function approve(address spender, uint256 amount) returns (bool)",
+                    params: [spender, amount]
+                });
+
+                const { transactionHash } = await sendTransaction({
+                    transaction,
+                    account
+                });
+
+                resultElement.textContent = `Transaction successful! Hash: ${transactionHash}`;
+            } catch (error) {
+                resultElement.textContent = `Error: ${error.message}`;
+            }
+        });
+    </script>
