@@ -44,6 +44,24 @@
             font-size: 0.9rem;
             color: #777;
         }
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            z-index: 1000;
+        }
+        #cookie-banner button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -56,5 +74,56 @@
     <footer>
         NOTHING IS A MEME AND HAS NO INTRINSIC VALUE
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner">
+        This site uses cookies. Please accept to continue.
+        <button id="accept-cookies">Accept</button>
+        <button id="decline-cookies">Do Not Accept</button>
+    </div>
+
+    <script>
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        // Function to get a cookie
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                let cookie = cookies[i].trim();
+                if (cookie.indexOf(nameEQ) === 0) return cookie.substring(nameEQ.length, cookie.length);
+            }
+            return null;
+        }
+
+        // Check if the cookie is already set
+        window.onload = function() {
+            const cookieConsent = getCookie("cookieConsent");
+            if (cookieConsent) {
+                document.getElementById("cookie-banner").style.display = "none";
+            }
+        };
+
+        // Accept cookies button
+        document.getElementById("accept-cookies").addEventListener("click", function() {
+            setCookie("cookieConsent", "true", 365);  // Set cookie for 1 year
+            document.getElementById("cookie-banner").style.display = "none";
+        });
+
+        // Decline cookies button
+        document.getElementById("decline-cookies").addEventListener("click", function() {
+            setCookie("cookieConsent", "false", 365);  // Set cookie for 1 year
+            document.getElementById("cookie-banner").style.display = "none";
+        });
+    </script>
 </body>
 </html>
